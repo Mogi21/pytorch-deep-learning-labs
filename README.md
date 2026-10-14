@@ -65,48 +65,22 @@ This repository contains my coursework and lab submissions for Stockholm Univers
 
 ---
 
-## 🛠️ Tech Stack
-* **Framework:** PyTorch (`torch`, `torch.nn`, `torch.utils.data`, `torchvision.models`, `torchvision.transforms`)
-* **Data Processing & Metrics:** NumPy, Pandas, Scikit-Learn (`StandardScaler`, `MinMaxScaler`, `OneHotEncoder`, `f1_score`)
-* **Visualization:** Matplotlib, Seaborn, Graphviz* **`04_pytorch_cnns_cifar10.ipynb`** (Image Classification & Transfer Learning)
-  * **Dataset:** CIFAR-10 (60,000 32x32 RGB images across 10 classes).
+### Lab 5: Transformers & Natural Language Processing
+* **`06_pytorch_transformers.ipynb`** (Embeddings, Fine-Tuning & Autoregression)
+  * **Datasets:** AG News Corpus (sub-sampled), Custom Text Classification datasets.
   * **Architectures:** 
-    * Custom CNN with sequential convolutional/pooling blocks, Batch Normalization, and Dropout.
-    * **ResNet18** (Transfer learning via pre-trained weights from ImageNet).
+    * Pre-trained Base `BERT` (`bert-base-uncased`) for feature extraction and Masked Language Modeling (MLM).
+    * `RoBERTa` (`roberta-base`) configured with a Sequence Classification head.
   * **Key Concepts:** 
-    * Design and implementation of 2D convolutional layers, max-pooling operations, and programmatic spatial shape tracking algorithms.
-    * Real-time image **Data Augmentation** (`RandomCrop`, `RandomHorizontalFlip`) to improve model generalization and prevent overfitting.
-    * **Transfer Learning**: Freezing deep feature extraction backbones and fine-tuning isolated classification heads for rapid convergence.
-    * Engineering a custom PyTorch `Dataset` subclass to ingest and normalize raw NumPy arrays for inference.
-  * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mogi21/pytorch-deep-learning-labs/blob/main/04_pytorch_cnns_cifar10.ipynb)
+    * Accessing and interpreting contextualized outputs (pooler outputs, hidden states, attention matrices) from the Hugging Face `transformers` ecosystem.
+    * Engineering text similarity pipelines leveraging **Cosine Similarity** on `[CLS]` token pooler embeddings.
+    * **Fine-Tuning Strategies**: Freezing backbone parameters where necessary and applying `AdamW` optimizers with conservative learning rates (e.g., `2e-5`) to specialize pre-trained transformers on downstream classification tasks.
+    * Simulating **Causal Autoregressive Text Generation** by iteratively masking and predicting sequences using an MLM head.
+  * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mogi21/pytorch-deep-learning-labs/blob/main/06_pytorch_transformers.ipynb)
 
 ---
 
 ## 🛠️ Tech Stack
-* **Framework:** PyTorch (`torch`, `torch.nn`, `torch.utils.data`, `torchvision.models`, `torchvision.transforms`)
-* **Data Processing & Metrics:** NumPy, Pandas, Scikit-Learn (`StandardScaler`, `MinMaxScaler`, `OneHotEncoder`, `f1_score`)
-* **Visualization:** Matplotlib, Seaborn, Graphviz
-* **`02_pytorch_regression.ipynb`** (Continuous Regression)
-  * **Dataset:** California Housing Dataset.
-  * **Architecture:** Linear regression network adapted for continuous target prediction.
-  * **Key Concepts:** Feature standardization using scikit-learn, Mean Squared Error (`MSELoss`) optimization, and inference pipeline structuring for evaluation.
-  * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mogi21/pytorch-deep-learning-labs/blob/main/02_pytorch_regression.ipynb)
-
----
-
-### Lab 2: Training Optimization & Network Tuning
-* **`03_pytorch_wine_quality.ipynb`** (Tabular Classification & Regularization)
-  * **Dataset:** Wine Quality Dataset (Red and white Portuguese Vinho Verde wine physicochemical properties)[cite: 6].
-  * **Architecture:** Multi-layer Sequential network (`nn.Sequential`) featuring linear transformation layers, ReLU activations, and Dropout layers for regularization.
-  * **Key Concepts:** 
-    * Investigation of optimization dynamics across loss functions (BCE vs. MSE) and L2 (Ridge) regularization parameters.
-    * Advanced optimization strategy utilizing **AdamW** with weight decay.
-    * Implementation of **Early Stopping** with validation loss tracking and automatic weight restoration to prevent overfitting.
-  * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mogi21/pytorch-deep-learning-labs/blob/main/03_pytorch_wine_quality.ipynb)
-
----
-
-## 🛠️ Tech Stack
-* **Framework:** PyTorch (`torch`, `torch.nn`, `torch.utils.data`)
-* **Data Processing & Metrics:** NumPy, Pandas, Scikit-Learn (`StandardScaler`, `MinMaxScaler`, `OneHotEncoder`, `f1_score`)
+* **Framework:** PyTorch (`torch`, `torch.nn`, `torch.utils.data`), Hugging Face Transformers (`AutoTokenizer`, `AutoModel`, `AutoModelForSequenceClassification`, `AutoModelForMaskedLM`)
+* **Data Processing & Metrics:** NumPy, Pandas, Scikit-Learn (`StandardScaler`, `MinMaxScaler`, `OneHotEncoder`, `f1_score`, `cosine_similarity`), Hugging Face Datasets
 * **Visualization:** Matplotlib, Seaborn, Graphviz
