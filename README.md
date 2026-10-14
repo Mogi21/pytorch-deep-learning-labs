@@ -48,6 +48,40 @@ This repository contains my coursework and lab submissions for Stockholm Univers
 
 ---
 
+### Lab 4: Recurrent Neural Networks & Time-Series Analysis
+* **`05_pytorch_rnns_timeseries.ipynb`** (Forecasting & Sequence Classification)
+  * **Datasets:** 
+    * Synthetic superimposed chaotic continuous time-series (Forecasting).
+    * Z-scored dynamical systems dataset featuring 100-step sequences mapped to 4 distinct classes (Classification).
+  * **Architectures:** 
+    * `ScratchRNNCell`: Manual implementation of a recurrent cell explicitly defining temporal hidden state propagation.
+    * Gated Sequence Models: Leveraging PyTorch's optimized `nn.LSTM` and `nn.GRU` to combat the vanishing gradient problem inherent in BPTT (Backpropagation Through Time).
+    * Deep Sequence Classifier: Multi-layer RNN integrating temporal output slicing, Batch Normalization (`nn.BatchNorm1d`), and Dropout logic.
+  * **Key Concepts:** 
+    * Analyzing BPTT gradient degradation over long sequences (e.g., $t=200$).
+    * Utilizing Gradient Clipping (`clip_grad_norm_`) to stabilize explosive recurrences.
+    * Employing strict walk-forward temporal validation splits to strictly avoid future-data leakage during standardization and evaluation.
+  * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mogi21/pytorch-deep-learning-labs/blob/main/05_pytorch_rnns_timeseries.ipynb)
+
+---
+
+## 🛠️ Tech Stack
+* **Framework:** PyTorch (`torch`, `torch.nn`, `torch.utils.data`, `torchvision.models`, `torchvision.transforms`)
+* **Data Processing & Metrics:** NumPy, Pandas, Scikit-Learn (`StandardScaler`, `MinMaxScaler`, `OneHotEncoder`, `f1_score`)
+* **Visualization:** Matplotlib, Seaborn, Graphviz* **`04_pytorch_cnns_cifar10.ipynb`** (Image Classification & Transfer Learning)
+  * **Dataset:** CIFAR-10 (60,000 32x32 RGB images across 10 classes).
+  * **Architectures:** 
+    * Custom CNN with sequential convolutional/pooling blocks, Batch Normalization, and Dropout.
+    * **ResNet18** (Transfer learning via pre-trained weights from ImageNet).
+  * **Key Concepts:** 
+    * Design and implementation of 2D convolutional layers, max-pooling operations, and programmatic spatial shape tracking algorithms.
+    * Real-time image **Data Augmentation** (`RandomCrop`, `RandomHorizontalFlip`) to improve model generalization and prevent overfitting.
+    * **Transfer Learning**: Freezing deep feature extraction backbones and fine-tuning isolated classification heads for rapid convergence.
+    * Engineering a custom PyTorch `Dataset` subclass to ingest and normalize raw NumPy arrays for inference.
+  * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Mogi21/pytorch-deep-learning-labs/blob/main/04_pytorch_cnns_cifar10.ipynb)
+
+---
+
 ## 🛠️ Tech Stack
 * **Framework:** PyTorch (`torch`, `torch.nn`, `torch.utils.data`, `torchvision.models`, `torchvision.transforms`)
 * **Data Processing & Metrics:** NumPy, Pandas, Scikit-Learn (`StandardScaler`, `MinMaxScaler`, `OneHotEncoder`, `f1_score`)
